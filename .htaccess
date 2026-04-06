@@ -65,8 +65,8 @@ Options -Indexes
   </IfModule>
 </FilesMatch>
 
-# ── Block direct access to sensitive server files ──
-<FilesMatch "^(instagram-config\.json|instagram-cache\.json|instagram-setup\.php)$">
+# ── Block direct access to sensitive server-only files ──
+<FilesMatch "^(instagram-config\.json|instagram-cache\.json)$">
   <IfModule mod_authz_core.c>
     Require all denied
   </IfModule>
