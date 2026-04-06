@@ -70,7 +70,39 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
 
-  /* ── 6. Reservation form submission feedback ── */
+  /* ── 6. Hero crossfade slider ── */
+  const slides   = document.querySelectorAll('.hero-slide');
+  const dots     = document.querySelectorAll('.hero-dot');
+  let   current  = 0;
+  let   sliderTimer;
+
+  function goToSlide(index) {
+    slides[current].classList.remove('active');
+    dots[current].classList.remove('active');
+    current = (index + slides.length) % slides.length;
+    slides[current].classList.add('active');
+    dots[current].classList.add('active');
+  }
+
+  function nextSlide() { goToSlide(current + 1); }
+
+  function startSlider() {
+    sliderTimer = setInterval(nextSlide, 6000); // change every 6s
+  }
+
+  // Dot click — jump to that slide and reset timer
+  dots.forEach((dot, i) => {
+    dot.addEventListener('click', () => {
+      clearInterval(sliderTimer);
+      goToSlide(i);
+      startSlider();
+    });
+  });
+
+  if (slides.length > 1) startSlider();
+
+
+  /* ── 7. Reservation form ── */
   const resForm = document.getElementById('res-form');
   const resBtn  = document.getElementById('res-btn');
 
