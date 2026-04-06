@@ -1,0 +1,236 @@
+/* =============================================================
+   Fork & Fire — Custom Stylesheet
+   Fonts: Cormorant Garamond (display) + Inter (body)
+   Palette: #0C0C0C bg · #C9A84C gold · #F0EDE8 text
+============================================================= */
+
+/* ── CSS Variables ── */
+:root {
+  --bg:       #0C0C0C;
+  --surface:  #131313;
+  --surface2: #1A1A1A;
+  --gold:     #C9A84C;
+  --gold-lt:  #E2C26E;
+  --text:     #F0EDE8;
+  --muted:    #6B6B6B;
+}
+
+/* ── Reset & Base ── */
+*, *::before, *::after { box-sizing: border-box; }
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ── Custom Scrollbar ── */
+::-webkit-scrollbar { width: 3px; }
+::-webkit-scrollbar-track { background: var(--bg); }
+::-webkit-scrollbar-thumb { background: var(--gold); border-radius: 2px; }
+
+/* =============================================================
+   SCROLL REVEAL ANIMATIONS
+============================================================= */
+.reveal {
+  opacity: 0;
+  transform: translateY(32px);
+  transition: opacity 0.75s cubic-bezier(.16,1,.3,1),
+              transform 0.75s cubic-bezier(.16,1,.3,1);
+}
+.reveal.in { opacity: 1; transform: none; }
+
+.reveal-left {
+  opacity: 0;
+  transform: translateX(-32px);
+  transition: opacity 0.75s cubic-bezier(.16,1,.3,1),
+              transform 0.75s cubic-bezier(.16,1,.3,1);
+}
+.reveal-left.in { opacity: 1; transform: none; }
+
+.reveal-right {
+  opacity: 0;
+  transform: translateX(32px);
+  transition: opacity 0.75s cubic-bezier(.16,1,.3,1),
+              transform 0.75s cubic-bezier(.16,1,.3,1);
+}
+.reveal-right.in { opacity: 1; transform: none; }
+
+/* =============================================================
+   NAVIGATION
+============================================================= */
+#navbar {
+  transition: background 0.4s ease, border-color 0.4s ease, backdrop-filter 0.4s ease;
+}
+#navbar.scrolled {
+  background: rgba(12,12,12,0.94);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid rgba(201,168,76,0.18);
+}
+
+/* =============================================================
+   COMPONENTS
+============================================================= */
+
+/* Gold rule / divider */
+.gold-rule {
+  display: block;
+  width: 48px;
+  height: 1px;
+  background: var(--gold);
+  flex-shrink: 0;
+}
+
+/* Gold underline link */
+.gold-underline { border-bottom: 1px solid rgba(201,168,76,0.35); }
+.gold-underline:hover { border-color: var(--gold); }
+
+/* ── Buttons ── */
+.btn-gold {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 14px 32px;
+  background: var(--gold);
+  color: #000;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  transition: background 0.3s ease, transform 0.2s ease;
+  cursor: pointer;
+  border: none;
+}
+.btn-gold:hover { background: var(--gold-lt); }
+
+.btn-ghost {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 14px 32px;
+  border: 1px solid rgba(255,255,255,0.28);
+  color: #fff;
+  font-size: 11px;
+  font-weight: 400;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  transition: border-color 0.3s ease, color 0.3s ease;
+}
+.btn-ghost:hover { border-color: var(--gold); color: var(--gold); }
+
+/* =============================================================
+   HERO
+============================================================= */
+@keyframes nudge {
+  0%, 100% { transform: translateY(0); }
+  50%       { transform: translateY(6px); }
+}
+.nudge { animation: nudge 2s ease-in-out infinite; }
+
+/* =============================================================
+   MENU CARDS
+============================================================= */
+.menu-card {
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+}
+.menu-card-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.8s cubic-bezier(.16,1,.3,1);
+}
+.menu-card:hover .menu-card-img { transform: scale(1.07); }
+
+.menu-card-body {
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  padding: 2rem;
+  background: linear-gradient(
+    to top,
+    rgba(0,0,0,0.92) 0%,
+    rgba(0,0,0,0.5)  60%,
+    transparent      100%
+  );
+  transition: padding 0.4s ease;
+}
+.menu-card:hover .menu-card-body { padding-bottom: 2.5rem; }
+
+.menu-desc {
+  overflow: hidden;
+  max-height: 0;
+  opacity: 0;
+  transition: max-height 0.5s ease, opacity 0.5s ease, margin 0.4s ease;
+}
+.menu-card:hover .menu-desc {
+  max-height: 80px;
+  opacity: 1;
+  margin-top: 8px;
+}
+
+/* =============================================================
+   EXPERIENCE CARDS
+============================================================= */
+.exp-card {
+  padding: 2rem;
+  border: 1px solid rgba(255,255,255,0.08);
+  transition: border-color 0.4s ease, background 0.4s ease, transform 0.4s ease;
+}
+.exp-card:hover {
+  border-color: rgba(201,168,76,0.4);
+  background: rgba(255,255,255,0.03);
+  transform: translateY(-4px);
+}
+
+/* =============================================================
+   RESERVATION FORM
+============================================================= */
+.ff-label {
+  display: block;
+  font-size: 10px;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 8px;
+}
+.ff-input {
+  width: 100%;
+  padding: 14px 16px;
+  background: var(--surface2);
+  border: 1px solid rgba(201,168,76,0.18);
+  color: var(--text);
+  font-family: 'Inter', sans-serif;
+  font-size: 13px;
+  transition: border-color 0.3s ease;
+  appearance: none;
+  -webkit-appearance: none;
+}
+.ff-input:focus {
+  outline: none;
+  border-color: var(--gold);
+}
+.ff-input::placeholder { color: var(--muted); }
+
+/* =============================================================
+   AMBIANCE IMAGE GRID
+============================================================= */
+.img-grid-b { margin-top: 2.5rem; }
+.img-grid-c { margin-top: -1.5rem; }
+.img-grid-d { margin-top: 1rem; }
+
+/* =============================================================
+   MOBILE STICKY CTA
+============================================================= */
+#sticky-cta {
+  transition: opacity 0.35s ease, transform 0.35s ease;
+}
+#sticky-cta.hidden-cta {
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(8px);
+}
