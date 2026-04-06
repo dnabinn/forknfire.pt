@@ -28,3 +28,4 @@ jobs:
             **/CNAME
             **/DEPLOY.md
             **/.gitignore
+            **/.github/**
