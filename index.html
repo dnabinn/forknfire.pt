@@ -42,7 +42,7 @@
   </script>
 
   <!-- ── Custom Styles ── -->
-  <link rel="stylesheet" href="css/styles.css?v=2">
+  <link rel="stylesheet" href="css/styles.css?v=3">
 </head>
 
 <body class="font-sans antialiased">
@@ -84,23 +84,46 @@
       </svg>
     </button>
   </div>
+</nav>
 
-  <!-- Mobile drawer -->
-  <div id="mobile-nav" class="hidden md:hidden bg-black/96 border-t border-white/5 px-6 py-6 space-y-1">
-    <a href="#about"      class="block py-3 text-xs text-gray-300 hover:text-gold tracking-widest uppercase" data-i18n="nav.about">About</a>
-    <a href="#menu"       class="block py-3 text-xs text-gray-300 hover:text-gold tracking-widest uppercase" data-i18n="nav.menu">Menu</a>
-    <a href="#experience" class="block py-3 text-xs text-gray-300 hover:text-gold tracking-widest uppercase" data-i18n="nav.experience">Experience</a>
-    <a href="#reviews"    class="block py-3 text-xs text-gray-300 hover:text-gold tracking-widest uppercase" data-i18n="nav.reviews">Reviews</a>
-    <a href="#contact"    class="block py-3 text-xs text-gray-300 hover:text-gold tracking-widest uppercase" data-i18n="nav.contact">Contact</a>
-    <!-- Mobile lang toggle -->
-    <div class="flex items-center gap-2 py-2">
+<!-- Mobile full-screen overlay (outside nav so it covers everything) -->
+<div id="mobile-nav" class="hidden fixed inset-0 z-[60] flex flex-col" style="background:#0C0C0C">
+
+  <!-- Top bar: logo + close -->
+  <div class="flex items-center justify-between px-6 py-5 flex-shrink-0">
+    <a href="#" onclick="document.getElementById('mobile-nav').classList.add('hidden');document.body.style.overflow=''">
+      <img src="assets/images/logo.png" alt="Fork &amp; Fire" class="h-12 w-auto object-contain">
+    </a>
+    <button id="mobile-close" class="p-2 text-gray-500 hover:text-white transition-colors duration-200" aria-label="Close menu">
+      <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M6 18L18 6M6 6l12 12"/>
+      </svg>
+    </button>
+  </div>
+
+  <!-- Gold line -->
+  <div class="h-px mx-6 flex-shrink-0" style="background:linear-gradient(to right,transparent,rgba(201,168,76,0.3),transparent)"></div>
+
+  <!-- Nav links — centred vertically -->
+  <div class="flex-1 flex flex-col justify-center px-8">
+    <a href="#about"      class="mobile-nav-link" data-i18n="nav.about">About</a>
+    <a href="#menu"       class="mobile-nav-link" data-i18n="nav.menu">Menu</a>
+    <a href="#experience" class="mobile-nav-link" data-i18n="nav.experience">Experience</a>
+    <a href="#reviews"    class="mobile-nav-link" data-i18n="nav.reviews">Reviews</a>
+    <a href="#contact"    class="mobile-nav-link" data-i18n="nav.contact">Contact</a>
+  </div>
+
+  <!-- Bottom: language + CTA -->
+  <div class="px-8 pb-10 flex-shrink-0 space-y-5">
+    <div class="flex items-center gap-2">
       <button class="lang-btn active" data-lang="en">EN</button>
       <span class="lang-sep">|</span>
       <button class="lang-btn" data-lang="pt">PT</button>
     </div>
-    <a href="#reserve" class="block mt-2 py-4 text-center border border-gold text-gold text-xs tracking-widest uppercase hover:bg-gold hover:text-black transition-all duration-300" data-i18n="nav.reserve2">Reserve a Table</a>
+    <a href="#reserve" class="btn-gold w-full justify-center" data-i18n="nav.reserve2">Reserve a Table</a>
   </div>
-</nav>
+
+</div>
 
 
 <!-- ================================================================
@@ -533,32 +556,15 @@
          class="text-gray-500 text-sm hover:text-gold transition-colors duration-300">@forknfire.pt</a>
     </div>
 
-    <!-- 6-photo grid -->
-    <div class="grid grid-cols-2 md:grid-cols-3 gap-3 reveal">
-      <a href="https://www.instagram.com/forknfire.pt/" target="_blank" rel="noopener noreferrer" class="insta-post group">
-        <img src="assets/images/insta/post-1.jpg" onerror="this.src='https://images.unsplash.com/photo-1579871494447-9811cf80d66c?w=600&q=80'" alt="Fork &amp; Fire Instagram" class="insta-img">
-        <div class="insta-overlay"><svg class="w-7 h-7 text-white" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg></div>
-      </a>
-      <a href="https://www.instagram.com/forknfire.pt/" target="_blank" rel="noopener noreferrer" class="insta-post group">
-        <img src="assets/images/insta/post-2.jpg" onerror="this.src='https://images.unsplash.com/photo-1529193591184-b1d58069ecdd?w=600&q=80'" alt="Fork &amp; Fire Instagram" class="insta-img">
-        <div class="insta-overlay"><svg class="w-7 h-7 text-white" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg></div>
-      </a>
-      <a href="https://www.instagram.com/forknfire.pt/" target="_blank" rel="noopener noreferrer" class="insta-post group">
-        <img src="assets/images/insta/post-3.jpg" onerror="this.src='https://images.unsplash.com/photo-1585937421612-70a008356fbe?w=600&q=80'" alt="Fork &amp; Fire Instagram" class="insta-img">
-        <div class="insta-overlay"><svg class="w-7 h-7 text-white" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg></div>
-      </a>
-      <a href="https://www.instagram.com/forknfire.pt/" target="_blank" rel="noopener noreferrer" class="insta-post group">
-        <img src="assets/images/insta/post-4.jpg" onerror="this.src='https://images.unsplash.com/photo-1569050467447-ce54b3bbc37d?w=600&q=80'" alt="Fork &amp; Fire Instagram" class="insta-img">
-        <div class="insta-overlay"><svg class="w-7 h-7 text-white" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg></div>
-      </a>
-      <a href="https://www.instagram.com/forknfire.pt/" target="_blank" rel="noopener noreferrer" class="insta-post group">
-        <img src="assets/images/insta/post-5.jpg" onerror="this.src='https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=600&q=80'" alt="Fork &amp; Fire Instagram" class="insta-img">
-        <div class="insta-overlay"><svg class="w-7 h-7 text-white" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg></div>
-      </a>
-      <a href="https://www.instagram.com/forknfire.pt/" target="_blank" rel="noopener noreferrer" class="insta-post group">
-        <img src="assets/images/insta/post-6.jpg" onerror="this.src='https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=600&q=80'" alt="Fork &amp; Fire Instagram" class="insta-img">
-        <div class="insta-overlay"><svg class="w-7 h-7 text-white" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg></div>
-      </a>
+    <!-- Live Instagram grid — populated by JS fetch to instagram.php -->
+    <div id="insta-grid" class="grid grid-cols-2 md:grid-cols-3 gap-3">
+      <!-- Skeletons shown while loading -->
+      <div class="insta-post" style="background:#1a1a1a"></div>
+      <div class="insta-post" style="background:#1a1a1a"></div>
+      <div class="insta-post" style="background:#1a1a1a"></div>
+      <div class="insta-post" style="background:#1a1a1a"></div>
+      <div class="insta-post" style="background:#1a1a1a"></div>
+      <div class="insta-post" style="background:#1a1a1a"></div>
     </div>
 
     <div class="text-center mt-8 reveal">
@@ -866,7 +872,7 @@
 
 
 <!-- ── Scripts ── -->
-<script src="js/main.js?v=2" defer></script>
+<script src="js/main.js?v=3" defer></script>
 
 </body>
 </html>

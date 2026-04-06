@@ -8,3 +8,8 @@ Thumbs.db
 
 # Logs
 *.log
+
+# Instagram integration — server-only files (never commit)
+instagram-setup.php
+instagram-config.json
+instagram-cache.json

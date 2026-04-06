@@ -380,3 +380,21 @@ body {
   transition: opacity 0.4s ease;
 }
 .insta-post:hover .insta-overlay { opacity: 1; }
+
+/* =============================================================
+   MOBILE NAV OVERLAY
+============================================================= */
+.mobile-nav-link {
+  display: block;
+  padding: 1.1rem 0;
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 2rem;
+  font-weight: 300;
+  color: rgba(255,255,255,0.85);
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+  transition: color 0.2s ease, padding-left 0.2s ease;
+}
+.mobile-nav-link:hover {
+  color: var(--gold);
+  padding-left: 6px;
+}
