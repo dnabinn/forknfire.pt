@@ -9,7 +9,7 @@ const T = {
     'nav.about':      'About',
     'nav.menu':       'Menu',
     'nav.experience': 'Experience',
-    'nav.ambiance':   'Ambiance',
+    'nav.reviews':    'Reviews',
     'nav.contact':    'Contact',
     'nav.reserve':    'Reserve',
     'nav.reserve2':   'Reserve a Table',
@@ -93,6 +93,17 @@ const T = {
     'res.ok':  'Request Received — We\'ll Be in Touch',
     'res.err': 'Something went wrong. Please call us directly.',
 
+    /* Reviews */
+    'reviews.label': 'Guest Reviews',
+    'reviews.h':     'What Our <em class="not-italic text-gold">Guests Say.</em>',
+    'reviews.on':    'on Google',
+    'reviews.cta':   'Leave Us a Review on Google',
+
+    /* Instagram */
+    'insta.label': 'Instagram',
+    'insta.h':     'Life at <em class="not-italic text-gold">Fork &amp; Fire.</em>',
+    'insta.cta':   'Follow on Instagram',
+
     /* Contact */
     'contact.label':     'Find Us',
     'contact.h':         'Come <em class="not-italic text-gold">Visit Us.</em>',
@@ -100,18 +111,19 @@ const T = {
     'contact.phone':     'Phone',
     'contact.email':     'Email',
     'contact.hours':     'Opening Hours',
-    'contact.mon':       'Monday – Friday',
-    'contact.sat':       'Saturday',
-    'contact.sun':       'Sunday',
+    'contact.mon':       'Monday',
+    'contact.mon.val':   'Closed',
+    'contact.sat':       'Tue – Sun · Lunch',
+    'contact.sun':       'Tue – Sun · Dinner',
     'contact.map':       'Open in Google Maps',
 
     /* Footer */
     'footer.hours': 'Opening Hours',
     'footer.social':'Follow Us',
     'footer.about': 'Four cuisines. One address.<br>An experience worth every visit.',
-    'footer.mon':   'Mon – Fri',
-    'footer.sat':   'Saturday',
-    'footer.sun':   'Sunday',
+    'footer.mon':   'Monday',
+    'footer.sat':   'Tue – Sun · Lunch',
+    'footer.sun':   'Tue – Sun · Dinner',
     'footer.copy':  '© 2025 Fork & Fire. All rights reserved.',
     'footer.tag':   'Where Flavour Meets Fire.',
 
@@ -124,7 +136,7 @@ const T = {
     'nav.about':      'Sobre',
     'nav.menu':       'Menu',
     'nav.experience': 'Experiência',
-    'nav.ambiance':   'Ambiente',
+    'nav.reviews':    'Avaliações',
     'nav.contact':    'Contacto',
     'nav.reserve':    'Reservar',
     'nav.reserve2':   'Reservar Mesa',
@@ -208,6 +220,17 @@ const T = {
     'res.ok':  'Pedido Recebido — Entraremos em Contacto',
     'res.err': 'Algo correu mal. Por favor ligue-nos diretamente.',
 
+    /* Reviews */
+    'reviews.label': 'Avaliações',
+    'reviews.h':     'O Que Dizem os Nossos <em class="not-italic text-gold">Clientes.</em>',
+    'reviews.on':    'no Google',
+    'reviews.cta':   'Deixe a Sua Avaliação no Google',
+
+    /* Instagram */
+    'insta.label': 'Instagram',
+    'insta.h':     'A Vida no <em class="not-italic text-gold">Fork &amp; Fire.</em>',
+    'insta.cta':   'Seguir no Instagram',
+
     /* Contact */
     'contact.label':     'Encontre-nos',
     'contact.h':         'Venha <em class="not-italic text-gold">Visitar-nos.</em>',
@@ -215,18 +238,19 @@ const T = {
     'contact.phone':     'Telefone',
     'contact.email':     'E-mail',
     'contact.hours':     'Horário de Funcionamento',
-    'contact.mon':       'Segunda – Sexta',
-    'contact.sat':       'Sábado',
-    'contact.sun':       'Domingo',
+    'contact.mon':       'Segunda-feira',
+    'contact.mon.val':   'Encerrado',
+    'contact.sat':       'Ter – Dom · Almoço',
+    'contact.sun':       'Ter – Dom · Jantar',
     'contact.map':       'Abrir no Google Maps',
 
     /* Footer */
     'footer.hours': 'Horário',
     'footer.social':'Siga-nos',
     'footer.about': 'Quatro cozinhas. Uma morada.<br>Uma experiência que vale cada visita.',
-    'footer.mon':   'Seg – Sex',
-    'footer.sat':   'Sábado',
-    'footer.sun':   'Domingo',
+    'footer.mon':   'Segunda-feira',
+    'footer.sat':   'Ter – Dom · Almoço',
+    'footer.sun':   'Ter – Dom · Jantar',
     'footer.copy':  '© 2025 Fork & Fire. Todos os direitos reservados.',
     'footer.tag':   'Onde o Sabor Encontra o Fogo.',
 

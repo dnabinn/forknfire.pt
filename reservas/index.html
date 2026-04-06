@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- ── SEO ── -->
+  <title>Reserve Your Table – Fork &amp; Fire Lisbon</title>
+  <meta name="description" content="Book a table at Fork & Fire Lisbon. Sushi, grilled meats, Indian curries & Asian classics. Reserve online in minutes.">
+  <meta name="robots" content="index, follow">
+
+  <!-- ── Open Graph ── -->
+  <meta property="og:title"       content="Reserve Your Table – Fork &amp; Fire Lisbon">
+  <meta property="og:description" content="Book a table at Fork & Fire Lisbon. Reserve online in minutes.">
+  <meta property="og:type"        content="website">
+  <meta property="og:url"         content="https://forknfire.pt/reservas">
+  <meta property="og:image"       content="https://forknfire.pt/assets/images/hero-1.png">
+
+  <!-- ── Google Fonts ── -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <!-- ── Tailwind CSS ── -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            gold:        '#C9A84C',
+            'gold-light':'#E2C26E',
+            'gold-dark': '#A8872E',
+          },
+          fontFamily: {
+            serif: ['Cormorant Garamond', 'Georgia', 'serif'],
+            sans:  ['Inter', 'system-ui', 'sans-serif'],
+          },
+        }
+      }
+    }
+  </script>
+
+  <!-- ── Custom Styles ── -->
+  <link rel="stylesheet" href="../css/styles.css">
+
+  <style>
+    .page-bg {
+      background: #0C0C0C;
+      min-height: 100vh;
+    }
+    .form-section {
+      background: linear-gradient(
+        135deg,
+        rgba(201,168,76,0.04) 0%,
+        transparent 60%
+      );
+    }
+  </style>
+</head>
+
+<body class="font-sans antialiased page-bg">
+
+<!-- ================================================================
+  NAVIGATION
+================================================================ -->
+<nav id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-400">
+  <div class="max-w-7xl mx-auto px-6 py-5 flex items-center justify-between">
+
+    <!-- Logo -->
+    <a href="../" class="flex items-center group">
+      <img src="../assets/images/logo.png" alt="Fork &amp; Fire"
+           class="h-14 w-auto object-contain transition-opacity duration-300 group-hover:opacity-85">
+    </a>
+
+    <!-- Desktop links + lang toggle -->
+    <div class="hidden md:flex items-center gap-8">
+      <a href="../#about"      class="text-xs text-gray-400 hover:text-gold tracking-widest uppercase transition-colors duration-200" data-i18n="nav.about">About</a>
+      <a href="../#menu"       class="text-xs text-gray-400 hover:text-gold tracking-widest uppercase transition-colors duration-200" data-i18n="nav.menu">Menu</a>
+      <a href="../#experience" class="text-xs text-gray-400 hover:text-gold tracking-widest uppercase transition-colors duration-200" data-i18n="nav.experience">Experience</a>
+      <a href="../#contact"    class="text-xs text-gray-400 hover:text-gold tracking-widest uppercase transition-colors duration-200" data-i18n="nav.contact">Contact</a>
+
+      <!-- Language toggle -->
+      <div class="flex items-center gap-1.5">
+        <button class="lang-btn active" data-lang="en">EN</button>
+        <span class="lang-sep">|</span>
+        <button class="lang-btn" data-lang="pt">PT</button>
+      </div>
+
+      <a href="#" class="px-5 py-2.5 bg-gold text-black text-xs tracking-widest uppercase font-medium hover:bg-gold-light transition-all duration-300" data-i18n="nav.reserve2">Reserve a Table</a>
+    </div>
+
+    <!-- Mobile hamburger -->
+    <button id="hamburger" class="md:hidden flex flex-col gap-1.5 p-1" aria-label="Open menu">
+      <span class="w-6 h-px bg-gray-300 transition-all duration-300"></span>
+      <span class="w-6 h-px bg-gray-300 transition-all duration-300"></span>
+      <span class="w-4 h-px bg-gray-300 transition-all duration-300"></span>
+    </button>
+  </div>
+
+  <!-- Mobile nav -->
+  <div id="mobile-nav" class="hidden md:hidden bg-black/98 border-t border-white/6 px-6 py-8">
+    <div class="flex flex-col gap-6">
+      <a href="../#about"      class="text-sm text-gray-300 hover:text-gold tracking-widest uppercase" data-i18n="nav.about">About</a>
+      <a href="../#menu"       class="text-sm text-gray-300 hover:text-gold tracking-widest uppercase" data-i18n="nav.menu">Menu</a>
+      <a href="../#experience" class="text-sm text-gray-300 hover:text-gold tracking-widest uppercase" data-i18n="nav.experience">Experience</a>
+      <a href="../#contact"    class="text-sm text-gray-300 hover:text-gold tracking-widest uppercase" data-i18n="nav.contact">Contact</a>
+      <div class="flex items-center gap-3 pt-2">
+        <button class="lang-btn active" data-lang="en">EN</button>
+        <span class="lang-sep">|</span>
+        <button class="lang-btn" data-lang="pt">PT</button>
+      </div>
+    </div>
+  </div>
+</nav>
+
+
+<!-- ================================================================
+  HERO BANNER
+================================================================ -->
+<section class="relative pt-36 pb-20 overflow-hidden" style="background:#0C0C0C">
+  <!-- Gold gradient top line -->
+  <div class="absolute top-0 left-0 right-0 h-px"
+    style="background:linear-gradient(to right,transparent,rgba(201,168,76,0.5) 50%,transparent)">
+  </div>
+
+  <!-- Background image overlay -->
+  <div class="absolute inset-0 opacity-10"
+    style="background-image:url('../assets/images/hero-1.png');background-size:cover;background-position:center;">
+  </div>
+
+  <div class="relative max-w-3xl mx-auto px-6 text-center">
+    <div class="flex items-center justify-center gap-3 mb-6">
+      <span class="gold-rule"></span>
+      <span class="text-gold text-xs tracking-[.28em] uppercase" data-i18n="res.label">Reservations</span>
+      <span class="gold-rule"></span>
+    </div>
+    <h1 class="font-serif text-6xl md:text-8xl text-white mb-5 leading-none" data-i18n-html="res.h">
+      Secure Your <em class="not-italic text-gold">Table.</em>
+    </h1>
+    <p class="text-gray-400 text-sm md:text-base font-light leading-relaxed max-w-md mx-auto" data-i18n="res.sub">
+      Reserve in minutes. Show up to something worth looking forward to.
+    </p>
+  </div>
+</section>
+
+
+<!-- ================================================================
+  RESERVATION FORM
+================================================================ -->
+<section class="py-20 md:py-28 form-section">
+  <div class="max-w-3xl mx-auto px-6">
+
+    <div class="grid md:grid-cols-5 gap-12 items-start">
+
+      <!-- ── Left: Info panel ── -->
+      <div class="md:col-span-2 space-y-8">
+
+        <!-- Opening Hours -->
+        <div>
+          <div class="text-[10px] text-gold uppercase tracking-[.24em] mb-4" data-i18n="contact.hours">Opening Hours</div>
+          <div class="space-y-3 text-sm font-light">
+            <div class="flex justify-between gap-6 pb-3 border-b border-white/5">
+              <span class="text-gray-400" data-i18n="contact.mon">Monday</span>
+              <span class="text-red-400/70 text-xs uppercase tracking-widest" data-i18n="contact.mon.val">Closed</span>
+            </div>
+            <div class="flex justify-between gap-6 pb-3 border-b border-white/5">
+              <span class="text-gray-400" data-i18n="contact.sat">Tue – Sun · Lunch</span>
+              <span class="text-gray-300">12:00 – 15:00</span>
+            </div>
+            <div class="flex justify-between gap-6">
+              <span class="text-gray-400" data-i18n="contact.sun">Tue – Sun · Dinner</span>
+              <span class="text-gray-300">19:00 – 23:00</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Contact Info -->
+        <div>
+          <div class="text-[10px] text-gold uppercase tracking-[.24em] mb-4" data-i18n="contact.addr">Address</div>
+          <p class="text-gray-400 text-sm font-light leading-relaxed">
+            Av. 5 de Outubro 267B<br>
+            1600-035 Lisboa, Portugal
+          </p>
+          <a href="https://maps.google.com/?q=Av.+5+de+Outubro+267B,+Lisboa,+Portugal"
+             target="_blank" rel="noopener noreferrer"
+             class="inline-flex items-center gap-1.5 mt-3 text-gold text-[11px] tracking-[.14em] uppercase hover:text-gold-light transition-colors duration-300">
+            <span data-i18n="contact.map">Open in Google Maps</span>
+            <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/>
+            </svg>
+          </a>
+        </div>
+
+        <div>
+          <div class="text-[10px] text-gold uppercase tracking-[.24em] mb-4" data-i18n="contact.phone">Phone</div>
+          <a href="tel:+351218241089" class="text-gray-300 text-sm hover:text-gold transition-colors duration-300">
+            +351 21 824 1089
+          </a>
+        </div>
+
+        <!-- WhatsApp note -->
+        <div class="p-4" style="background:#1A1A1A;border:1px solid rgba(37,211,102,0.2)">
+          <div class="flex items-start gap-3">
+            <svg class="w-5 h-5 text-green-400 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
+            </svg>
+            <div>
+              <p class="text-gray-300 text-xs font-medium mb-1">WhatsApp</p>
+              <a href="https://wa.me/351920040889" target="_blank" rel="noopener noreferrer"
+                 class="text-gray-500 text-xs hover:text-green-400 transition-colors duration-300">
+                +351 920 040 889
+              </a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- ── Right: Reservation Form ── -->
+      <div class="md:col-span-3">
+        <form id="reserve-form" class="space-y-5" novalidate>
+
+          <!-- Name -->
+          <div>
+            <label class="ff-label" data-i18n="res.name">Full Name</label>
+            <input type="text" name="name" id="r-name" required
+              class="ff-input" data-i18n-ph="res.ph.name" placeholder="Your name">
+          </div>
+
+          <!-- Phone -->
+          <div>
+            <label class="ff-label" data-i18n="res.phone">Phone Number</label>
+            <input type="tel" name="phone" id="r-phone" required
+              class="ff-input" data-i18n-ph="res.ph.phone" placeholder="+351 000 000 000">
+          </div>
+
+          <!-- Date + Time -->
+          <div class="grid grid-cols-2 gap-4">
+            <div>
+              <label class="ff-label" data-i18n="res.date">Date</label>
+              <input type="date" name="date" id="r-date" required class="ff-input">
+            </div>
+            <div>
+              <label class="ff-label" data-i18n="res.time">Time</label>
+              <select name="time" id="r-time" class="ff-input cursor-pointer">
+                <option value="" id="rp-sel-time" data-i18n="res.ph.time">Select a time</option>
+                <optgroup label="Lunch">
+                  <option value="12:00">12:00</option>
+                  <option value="12:30">12:30</option>
+                  <option value="13:00">13:00</option>
+                  <option value="13:30">13:30</option>
+                  <option value="14:00">14:00</option>
+                  <option value="14:30">14:30</option>
+                </optgroup>
+                <optgroup label="Dinner">
+                  <option value="19:00">19:00</option>
+                  <option value="19:30">19:30</option>
+                  <option value="20:00">20:00</option>
+                  <option value="20:30">20:30</option>
+                  <option value="21:00">21:00</option>
+                  <option value="21:30">21:30</option>
+                  <option value="22:00">22:00</option>
+                  <option value="22:30">22:30</option>
+                </optgroup>
+              </select>
+            </div>
+          </div>
+
+          <!-- Guests -->
+          <div>
+            <label class="ff-label" data-i18n="res.guests">Number of Guests</label>
+            <select name="guests" id="r-guests" class="ff-input cursor-pointer">
+              <option id="rp-g1" value="1" data-i18n="res.g1">1 Guest</option>
+              <option id="rp-g2" value="2" data-i18n="res.g2">2 Guests</option>
+              <option id="rp-g3" value="3" data-i18n="res.g3">3 Guests</option>
+              <option id="rp-g4" value="4" data-i18n="res.g4" selected>4 Guests</option>
+              <option id="rp-g5" value="5" data-i18n="res.g5">5 Guests</option>
+              <option id="rp-g6" value="6+" data-i18n="res.g6">6+ Guests</option>
+            </select>
+          </div>
+
+          <!-- Notes -->
+          <div>
+            <label class="ff-label" data-i18n="res.notes">Notes / Special Requests (optional)</label>
+            <textarea name="notes" id="r-notes" rows="4"
+              class="ff-input resize-none"
+              data-i18n-ph="res.ph.notes"
+              placeholder="Allergies, dietary requirements, special occasions..."></textarea>
+          </div>
+
+          <!-- Submit -->
+          <button type="submit" id="r-submit"
+            class="btn-gold w-full text-xs tracking-[.18em]">
+            <span id="r-submit-text" data-i18n="res.btn">Book Your Table</span>
+            <svg id="r-spinner" class="hidden w-4 h-4 animate-spin" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+              <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"/>
+              <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z"/>
+            </svg>
+          </button>
+
+          <!-- Status messages -->
+          <div id="r-ok"  class="hidden text-center py-4 border border-gold/30 bg-gold/5 text-gold text-sm tracking-wide" data-i18n="res.ok">Request Received — We'll Be in Touch</div>
+          <div id="r-err" class="hidden text-center py-4 border border-red-500/30 bg-red-500/5 text-red-400 text-sm" data-i18n="res.err">Something went wrong. Please call us directly.</div>
+
+          <!-- Note -->
+          <p class="text-gray-600 text-[11px] text-center leading-relaxed" data-i18n="res.note">
+            We'll confirm your reservation by phone within 24 hours.
+          </p>
+
+        </form>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ================================================================
+  BACK TO SITE
+================================================================ -->
+<section class="py-16 text-center" style="background:#090909;border-top:1px solid rgba(255,255,255,0.04)">
+  <a href="../" class="inline-flex items-center gap-3 text-gray-500 text-[11px] tracking-[.2em] uppercase hover:text-gold transition-colors duration-300">
+    <svg class="w-4 h-4 rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/>
+    </svg>
+    <span>Back to Fork &amp; Fire</span>
+  </a>
+</section>
+
+
+<!-- ================================================================
+  FOOTER
+================================================================ -->
+<footer style="background:#070707;border-top:1px solid rgba(255,255,255,0.04);" class="py-10">
+  <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-4">
+    <p class="text-gray-600 text-xs" data-i18n="footer.copy">© 2025 Fork & Fire. All rights reserved.</p>
+    <div class="flex items-center gap-6">
+      <a href="https://www.instagram.com/forknfire.pt/" target="_blank" rel="noopener noreferrer"
+         class="text-gray-600 hover:text-gold transition-colors duration-300 text-xs tracking-widest uppercase">Instagram</a>
+      <a href="https://www.facebook.com/forknfire.pt/" target="_blank" rel="noopener noreferrer"
+         class="text-gray-600 hover:text-gold transition-colors duration-300 text-xs tracking-widest uppercase">Facebook</a>
+      <a href="tel:+351218241089"
+         class="text-gray-600 hover:text-gold transition-colors duration-300 text-xs">+351 21 824 1089</a>
+    </div>
+  </div>
+</footer>
+
+
+<!-- WhatsApp Float -->
+<a href="https://wa.me/351920040889" class="whatsapp-float" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">
+  <svg class="w-7 h-7" fill="white" viewBox="0 0 24 24">
+    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
+  </svg>
+</a>
+
+
+<!-- ================================================================
+  SCRIPTS
+================================================================ -->
+<script>
+/* ── Translations (subset needed for this page) ── */
+const T = {
+  en: {
+    'nav.about': 'About', 'nav.menu': 'Menu', 'nav.experience': 'Experience',
+    'nav.contact': 'Contact', 'nav.reserve': 'Reserve', 'nav.reserve2': 'Reserve a Table',
+    'res.label': 'Reservations',
+    'res.h': 'Secure Your <em class="not-italic text-gold">Table.</em>',
+    'res.sub': 'Reserve in minutes. Show up to something worth looking forward to.',
+    'res.name': 'Full Name', 'res.phone': 'Phone Number', 'res.date': 'Date',
+    'res.time': 'Time', 'res.guests': 'Number of Guests',
+    'res.notes': 'Notes / Special Requests (optional)',
+    'res.btn': 'Book Your Table',
+    'res.note': "We'll confirm your reservation by phone within 24 hours.",
+    'res.ph.name': 'Your name', 'res.ph.phone': '+351 000 000 000',
+    'res.ph.time': 'Select a time',
+    'res.ph.notes': 'Allergies, dietary requirements, special occasions...',
+    'res.g1': '1 Guest', 'res.g2': '2 Guests', 'res.g3': '3 Guests',
+    'res.g4': '4 Guests', 'res.g5': '5 Guests', 'res.g6': '6+ Guests',
+    'res.ok': "Request Received — We'll Be in Touch",
+    'res.err': 'Something went wrong. Please call us directly.',
+    'contact.hours': 'Opening Hours', 'contact.addr': 'Address',
+    'contact.phone': 'Phone', 'contact.map': 'Open in Google Maps',
+    'contact.mon': 'Monday', 'contact.mon.val': 'Closed',
+    'contact.sat': 'Tue – Sun · Lunch', 'contact.sun': 'Tue – Sun · Dinner',
+    'footer.copy': '© 2025 Fork & Fire. All rights reserved.',
+  },
+  pt: {
+    'nav.about': 'Sobre', 'nav.menu': 'Menu', 'nav.experience': 'Experiência',
+    'nav.contact': 'Contacto', 'nav.reserve': 'Reservar', 'nav.reserve2': 'Reservar Mesa',
+    'res.label': 'Reservas',
+    'res.h': 'Garanta a Sua <em class="not-italic text-gold">Mesa.</em>',
+    'res.sub': 'Reserve em minutos. Apareça para algo que vale a pena antecipar.',
+    'res.name': 'Nome Completo', 'res.phone': 'Número de Telefone', 'res.date': 'Data',
+    'res.time': 'Hora', 'res.guests': 'Nº de Convidados',
+    'res.notes': 'Notas / Pedidos Especiais (opcional)',
+    'res.btn': 'Reservar Mesa',
+    'res.note': 'Confirmaremos a sua reserva por telefone em 24 horas.',
+    'res.ph.name': 'O seu nome', 'res.ph.phone': '+351 000 000 000',
+    'res.ph.time': 'Selecionar hora',
+    'res.ph.notes': 'Alergias, requisitos alimentares, ocasiões especiais...',
+    'res.g1': '1 Convidado', 'res.g2': '2 Convidados', 'res.g3': '3 Convidados',
+    'res.g4': '4 Convidados', 'res.g5': '5 Convidados', 'res.g6': '6+ Convidados',
+    'res.ok': 'Pedido Recebido — Entraremos em Contacto',
+    'res.err': 'Algo correu mal. Por favor ligue-nos diretamente.',
+    'contact.hours': 'Horário de Funcionamento', 'contact.addr': 'Morada',
+    'contact.phone': 'Telefone', 'contact.map': 'Abrir no Google Maps',
+    'contact.mon': 'Segunda-feira', 'contact.mon.val': 'Encerrado',
+    'contact.sat': 'Ter – Dom · Almoço', 'contact.sun': 'Ter – Dom · Jantar',
+    'footer.copy': '© 2025 Fork & Fire. Todos os direitos reservados.',
+  }
+};
+
+let currentLang = localStorage.getItem('ff-lang') || 'en';
+
+function setLanguage(lang) {
+  currentLang = lang;
+  localStorage.setItem('ff-lang', lang);
+  document.documentElement.lang = lang;
+
+  document.querySelectorAll('[data-i18n]').forEach(el => {
+    const val = T[lang][el.dataset.i18n];
+    if (val !== undefined) el.textContent = val;
+  });
+  document.querySelectorAll('[data-i18n-html]').forEach(el => {
+    const val = T[lang][el.dataset.i18nHtml];
+    if (val !== undefined) el.innerHTML = val;
+  });
+  document.querySelectorAll('[data-i18n-ph]').forEach(el => {
+    const val = T[lang][el.dataset.i18nPh];
+    if (val !== undefined) el.placeholder = val;
+  });
+
+  // Guest select options
+  ['g1','g2','g3','g4','g5','g6'].forEach(k => {
+    const el = document.getElementById('rp-' + k);
+    if (el) el.textContent = T[lang]['res.' + k];
+  });
+
+  document.querySelectorAll('.lang-btn').forEach(btn => {
+    btn.classList.toggle('active', btn.dataset.lang === lang);
+  });
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+
+  /* Navbar scroll */
+  const navbar = document.getElementById('navbar');
+  window.addEventListener('scroll', () => {
+    navbar.classList.toggle('scrolled', window.scrollY > 60);
+  }, { passive: true });
+
+  /* Mobile nav */
+  const hamburger = document.getElementById('hamburger');
+  const mobileNav = document.getElementById('mobile-nav');
+  hamburger.addEventListener('click', () => {
+    mobileNav.classList.toggle('hidden');
+  });
+
+  /* Language toggle */
+  document.querySelectorAll('.lang-btn').forEach(btn => {
+    btn.addEventListener('click', () => setLanguage(btn.dataset.lang));
+  });
+
+  /* Date minimum */
+  const dateInput = document.getElementById('r-date');
+  if (dateInput) {
+    const today = new Date().toISOString().split('T')[0];
+    dateInput.setAttribute('min', today);
+  }
+
+  /* Apply saved language */
+  setLanguage(currentLang);
+
+  /* Form submission */
+  const form      = document.getElementById('reserve-form');
+  const submit    = document.getElementById('r-submit');
+  const submitTxt = document.getElementById('r-submit-text');
+  const spinner   = document.getElementById('r-spinner');
+  const okMsg     = document.getElementById('r-ok');
+  const errMsg    = document.getElementById('r-err');
+
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    submit.disabled = true;
+    submitTxt.textContent = currentLang === 'pt' ? 'A enviar…' : 'Sending…';
+    spinner.classList.remove('hidden');
+    okMsg.classList.add('hidden');
+    errMsg.classList.add('hidden');
+
+    const data = new FormData(form);
+
+    try {
+      const resp = await fetch('../contact.php', { method: 'POST', body: data });
+      const json = await resp.json();
+      if (json.ok) {
+        form.reset();
+        okMsg.classList.remove('hidden');
+      } else {
+        errMsg.classList.remove('hidden');
+      }
+    } catch {
+      errMsg.classList.remove('hidden');
+    } finally {
+      submit.disabled = false;
+      submitTxt.textContent = T[currentLang]['res.btn'];
+      spinner.classList.add('hidden');
+    }
+  });
+
+});
+</script>
+
+</body>
+</html>
