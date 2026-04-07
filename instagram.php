@@ -16,6 +16,9 @@ function sendError(string $msg): void {
     exit;
 }
 
+define('IG_APP_ID',     '1134292362156389');
+define('IG_APP_SECRET', 'c0666fb73b27af67e06342c7492a5164');
+
 // ── 1. Load config ──────────────────────────────────────────────
 if (!file_exists(CONFIG_FILE)) {
     sendError('Not configured — run instagram-setup.php first');
