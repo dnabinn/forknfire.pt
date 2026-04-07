@@ -33,7 +33,7 @@ if (file_exists(CACHE_FILE) && (time() - filemtime(CACHE_FILE)) < CACHE_TTL) {
 }
 
 // ── 3. Fetch from Instagram Graph API ───────────────────────────
-$apiUrl = 'https://graph.facebook.com/v19.0/' . $config['ig_user_id'] . '/media?' . http_build_query([
+$apiUrl = 'https://graph.instagram.com/me/media?' . http_build_query([
     'fields'       => 'id,media_url,permalink,thumbnail_url,media_type,timestamp',
     'limit'        => 9,
     'access_token' => $config['access_token'],
