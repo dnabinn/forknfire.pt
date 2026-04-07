@@ -39,7 +39,15 @@ $apiUrl = 'https://graph.facebook.com/v19.0/' . $config['ig_user_id'] . '/media?
     'access_token' => $config['access_token'],
 ]);
 
-$raw = @file_get_contents($apiUrl);
+$ch = curl_init($apiUrl);
+curl_setopt_array($ch, [
+    CURLOPT_RETURNTRANSFER => true,
+    CURLOPT_TIMEOUT        => 15,
+    CURLOPT_SSL_VERIFYPEER => true,
+    CURLOPT_USERAGENT      => 'ForknFire/1.0',
+]);
+$raw = curl_exec($ch);
+curl_close($ch);
 
 // If API fails, return stale cache rather than an error
 if ($raw === false) {
