@@ -21,7 +21,7 @@ jobs:
           username:   u470147010.forknfire.pt
           password:   ${{ secrets.FTP_PASS }}
           port:       21
-          server-dir: /
+          server-dir: public_html/
           exclude: |
             **/.git*
             **/.git*/**
