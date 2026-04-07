@@ -3,6 +3,17 @@
 // Fetches latest 6 posts from Instagram Graph API, caches for 1 hour.
 // Config is written by instagram-setup.php (not in git).
 
+// Temporary debug — remove after fixing
+if (isset($_GET['debug'])) {
+    header('Content-Type: text/plain');
+    echo "instagram.php dir: " . __DIR__ . "\n";
+    echo "Config path: " . __DIR__ . '/instagram-config.json' . "\n";
+    echo "Config exists: " . (file_exists(__DIR__ . '/instagram-config.json') ? 'YES' : 'NO') . "\n";
+    echo "Files in dir:\n";
+    foreach (scandir(__DIR__) as $f) echo "  $f\n";
+    exit;
+}
+
 header('Content-Type: application/json');
 header('Cache-Control: public, max-age=3600');
 
