@@ -11,5 +11,9 @@ Thumbs.db
 
 # Instagram integration — server-only files (never commit)
 instagram-setup.php
+instagram-auth.php
 instagram-config.json
 instagram-cache.json
+
+# Subscriber data — personal info, never commit
+subscribers.csv
