@@ -1,5 +1,5 @@
 <?php
-// Fork & Fire — Email Subscriber Handler
+// Curry King & Grill — Discount Waitlist Handler
 // Saves name+email, sends notification to restaurant, returns JSON
 
 header('Content-Type: application/json');
@@ -47,11 +47,12 @@ if ($isNew) {
 
 // ── Send notification email to restaurant ───────────────────────
 $to      = 'forknfirelisbon@gmail.com';
-$subject = 'New Subscriber – Fork & Fire Rebrand';
-$body    = "New subscriber signed up for the 20% off early access:\n\n"
+$subject = 'New Waitlist Subscriber – Curry King & Grill';
+$body    = "Someone just joined the discount waitlist:\n\n"
          . "Name:  {$name}\n"
          . "Email: {$email}\n"
-         . "Time:  " . date('Y-m-d H:i:s') . "\n";
+         . "Time:  " . date('Y-m-d H:i:s') . "\n\n"
+         . "They'll receive exclusive discount emails when you're ready to send them.";
 
 $headers = "From: noreply@forknfire.pt\r\n"
          . "Reply-To: {$email}\r\n"
@@ -60,16 +61,18 @@ $headers = "From: noreply@forknfire.pt\r\n"
 @mail($to, $subject, $body, $headers);
 
 // ── Send confirmation email to subscriber ───────────────────────
-$confirmSubject = 'Fork & Fire — You\'re on the list!';
+$confirmSubject = 'Curry King & Grill — You\'re on the list!';
 $confirmBody    = "Hi {$name},\n\n"
-    . "Thank you for signing up! We're excited to share what's coming.\n\n"
-    . "When Fork & Fire reopens with our new Indian & Grill All You Can Eat experience,\n"
-    . "you'll receive 20% off your first reservation — exclusively for early subscribers.\n\n"
-    . "We'll be in touch soon.\n\n"
-    . "— The Fork & Fire Team\n"
+    . "You're officially on the Curry King & Grill discount waitlist!\n\n"
+    . "We're putting the finishing touches on something exciting —\n"
+    . "Indian & Grill All You Can Eat, right here in Lisbon.\n\n"
+    . "As a waitlist member, you'll be among the first to hear from us\n"
+    . "and receive exclusive discount offers — straight to your inbox.\n\n"
+    . "Stay tuned. Good things are coming.\n\n"
+    . "— The Curry King & Grill Team\n"
     . "https://forknfire.pt";
 
-$confirmHeaders = "From: Fork & Fire <noreply@forknfire.pt>\r\n"
+$confirmHeaders = "From: Curry King & Grill <noreply@forknfire.pt>\r\n"
                 . "X-Mailer: PHP/" . PHP_VERSION;
 
 @mail($email, $confirmSubject, $confirmBody, $confirmHeaders);
